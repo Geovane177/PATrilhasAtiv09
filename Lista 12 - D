@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace PATrilhasAtiv09
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			string maiorFrase;
+			
+			List<string> frase = new List<string>();
+			
+			frase.Add("Guilherme é gay");
+			frase.Add("Ta caro demais");
+			frase.Add("Eu tenho um fusca branco");
+			frase.Add("é por que eu uso o GPT pra estudar");
+			
+			maiorFrase = frase[0];
+			
+			foreach (string texto in frase) {
+				if (texto.Length > maiorFrase.Length){
+        		
+        		maiorFrase = texto;
+        	}
+			}
+			Console.WriteLine("O maior texto é: ");
+			Console.WriteLine(maiorFrase);
+			
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
