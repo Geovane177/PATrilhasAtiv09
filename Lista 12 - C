@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace PATrilhasAtiv09
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			
+			List<int> n1 = new List<int>{10, 20, 30, 50, 40};
+			
+			
+			
+			
+			foreach (int num in n1) {
+				Console.WriteLine(num);	
+			}
+			Console.Write("Maior numero: ");
+			Console.WriteLine(n1.Max());
+			
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
