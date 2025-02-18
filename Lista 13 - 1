@@ -1,0 +1,37 @@
+using System;
+
+namespace PATrilhasAtiv09
+{
+	static class calculadora{
+		public static int soma(int a, int b){
+			return a + b;
+		}
+		public static int sub(int a, int b){
+			return a - b;
+		}
+		public static double mult(int a, int b){
+			return a * b;
+		}
+		public static double div(int a, int b){
+			return a / b;
+		}
+	}
+	
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			Console.WriteLine("Digite os valores dos dois numeros: ");
+			int a = int.Parse(Console.ReadLine());
+			int b = int.Parse(Console.ReadLine());
+			
+			Console.WriteLine("Soma: "+calculadora.soma(a, b));
+			Console.WriteLine("Subtração: "+calculadora.sub(a, b));
+			Console.WriteLine("Multiplicação: "+calculadora.mult(a, b));
+			Console.WriteLine("Divisão: "+calculadora.div(a, b));
+			
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
