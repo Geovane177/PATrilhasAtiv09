@@ -1,0 +1,83 @@
+using System;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Generic;
+
+public class CarrinhoDeCompras
+{
+    public string[] nomesProdutos;
+    public double[] precosProdutos;
+    public int contador; 
+
+    public CarrinhoDeCompras(int capacidade = 10)
+    {
+        nomesProdutos = new string[capacidade];
+        precosProdutos = new double[capacidade];
+        contador = 0;
+    }
+
+    public void AdicionarProduto(string nome, double preco)
+    {
+        if (contador < nomesProdutos.Length)
+        {
+            nomesProdutos[contador] = nome; 
+            precosProdutos[contador] = preco; 
+            contador++; 
+            Console.WriteLine("Produto " + nome + " adicionado ao carrinho.");
+        }
+        else
+        {
+            Console.WriteLine("Carrinho cheio. Não é possível adicionar mais produtos.");
+        }
+        Task.Delay(1500).Wait();
+        Console.Clear();
+    }
+
+  
+    public double CalcularTotal()
+    {
+        double total = 0;
+        for (int i = 0; i < contador; i++)
+        {
+            total += precosProdutos[i]; 
+        }
+        return total;
+    }
+
+    public void ExibirItens()
+    {
+        if (contador == 0)
+        {
+            Console.WriteLine("O carrinho está vazio.");
+            return;
+        }
+
+        Console.WriteLine("Itens no carrinho:");
+        for (int i = 0; i < contador; i++)
+        {
+            Console.WriteLine(nomesProdutos[i] + ": R$" + precosProdutos[i]);
+
+        }
+        
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        CarrinhoDeCompras meuCarrinho = new CarrinhoDeCompras();
+
+        meuCarrinho.AdicionarProduto("Salada", 15);
+        meuCarrinho.AdicionarProduto("Ovo", 49.99);
+        meuCarrinho.AdicionarProduto("Macarrão", 99.99);
+
+        meuCarrinho.ExibirItens();
+
+        double total = meuCarrinho.CalcularTotal();
+        Console.WriteLine("Valor total do carrinho:" + total);
+
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey(true);
+    }
+}
