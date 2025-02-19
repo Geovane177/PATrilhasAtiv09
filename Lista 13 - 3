@@ -1,0 +1,42 @@
+	using System;
+	using System.Threading.Tasks;
+	using System.Linq;
+	
+	namespace PATrilhasAtiv09
+	{
+		class Produtos{
+			public double quantidade;
+			public double preco;
+			public double total;
+			public string nome;
+			
+			public void produto(){
+				Console.WriteLine("Nome do produto: ");
+	        	this.nome = Convert.ToString(Console.ReadLine().ToLower());
+				Console.WriteLine("Digite o preço do produto: ");
+				this.preco = double.Parse(Console.ReadLine());
+				Console.WriteLine("Digite a quantidade de produtos a venda: ");
+				this.quantidade = Convert.ToDouble(Console.ReadLine());
+				this.total = quantidade * preco;
+				Console.WriteLine("O valor total do(a) "+nome+" é R$ "+ total);
+			}
+			
+			
+			
+		}
+	    
+	
+	        
+	    class Program
+	    {
+	        public static void Main(string[] args)
+	        {
+	        	Produtos loja = new Produtos();
+	        	
+	        	loja.produto();
+
+	            Console.Write("Pressione qualquer tecla para sair...");
+	            Console.ReadKey(true);
+	        }
+	    }
+	}
