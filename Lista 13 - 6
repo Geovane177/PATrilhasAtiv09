@@ -1,0 +1,49 @@
+	using System;
+	using System.Threading.Tasks;
+	using System.Linq;
+	
+	namespace PATrilhasAtiv09
+	{
+		class Retangulo{
+		
+			public double altura;
+			public double basse;
+			public double perimetro;
+			public double area;
+			
+			
+			public void valores(){
+				Console.WriteLine("Digite a base do retangulo: ");
+				this.basse = double.Parse(Console.ReadLine());
+				Console.WriteLine("Digite a altura do retangulo: ");
+				this.altura = double.Parse(Console.ReadLine());
+			}
+			public void perimetroo(){
+				this.perimetro = 2 * (basse + altura);
+				Console.WriteLine("Perimetro: "+ perimetro);
+			}
+			public void areaa(){
+				this.area = basse * altura;
+				Console.WriteLine("Area: "+ area);
+			}
+		}
+	    
+	
+	        
+	    class Program
+	    {
+	        public static void Main(string[] args)
+	        {
+	        	Retangulo calculos = new Retangulo();
+	        	
+	        	calculos.valores();
+	        	calculos.perimetroo();
+	        	calculos.areaa();
+	        	
+	        	
+
+	            Console.Write("Pressione qualquer tecla para sair...");
+	            Console.ReadKey(true);
+	        }
+	    }
+	}
