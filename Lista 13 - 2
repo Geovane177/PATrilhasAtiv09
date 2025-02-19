@@ -63,3 +63,99 @@ namespace PATrilhasAtiv09
 		}
 	}
 }
+
+
+_---------------------------------------
+
+using System;
+using System.Threading.Tasks;
+using System.Linq;
+
+namespace PATrilhasAtiv09
+{
+    class Inter
+    {
+        private double saldo = 0;
+        private string email;
+        private int cpf;
+        public string nome { get; private set; }
+        private string senha;
+
+        public void abrir_conta()
+        {
+            Console.WriteLine("Digite seu nome: ");
+            this.nome = Console.ReadLine();
+            Console.WriteLine("Digite seu CPF: ");
+            this.cpf = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite seu email: ");
+            this.email = Console.ReadLine();
+            Console.WriteLine("Digite sua senha: ");
+            this.senha = Console.ReadLine();
+        }
+
+        public void depositar()
+        {
+            Console.WriteLine("Digite quanto você quer depositar: ");
+            double deposito = double.Parse(Console.ReadLine());
+            saldo += deposito;
+     
+            
+        }
+
+        public void sacar()
+        {
+            Console.WriteLine("Digite quanto você quer sacar: ");
+            double saque = double.Parse(Console.ReadLine());
+
+            if (saque > saldo)
+            {
+                Console.WriteLine("Saldo insuficiente!");
+            }
+            else
+            {
+                saldo -= saque;
+                Console.WriteLine(string.Format("Saque realizado! Novo saldo: ", saldo));
+            }
+        }
+
+        public double exibirSaldo()
+        {
+            return saldo;
+        }
+    }
+
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Inter banco = new Inter();
+            int resp = 0;
+
+            while (resp != 4)
+            {
+                Console.Clear();
+                Console.WriteLine("MENU");
+                Console.WriteLine(Console.WriteLine("Saldo: {0:C}"+ banco.exibirSaldo()));
+                Console.WriteLine("1. Criar uma conta\n2. Realizar depósito\n3. Realizar saque\n4. Fechar conta");
+
+                resp = int.Parse(Console.ReadLine());
+
+                switch (resp)
+                {
+                    case 1:
+                        banco.abrir_conta();
+                        break;
+                    case 2:
+                        banco.depositar();
+                        break;
+                    case 3:
+                        banco.sacar();
+                        break;
+                }
+            }
+
+            Console.Write("Pressione qualquer tecla para sair...");
+            Console.ReadKey(true);
+        }
+    }
+}
