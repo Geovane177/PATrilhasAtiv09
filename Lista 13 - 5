@@ -1,0 +1,48 @@
+	using System;
+	using System.Threading.Tasks;
+	using System.Linq;
+	
+	namespace PATrilhasAtiv09
+	{
+		class livro{
+		
+			public string nome;
+			public int estoque = 2;
+			public int resp;
+			
+			public void biblioteca(){
+				Console.WriteLine("Digite o nome do livro");
+				this.nome = Convert.ToString(Console.ReadLine().ToLower());
+				if (estoque > 0) {
+					Console.WriteLine("Deseja fazer emprestimo do livro '"+ nome +"'? (1 para sim / 2 para não)");
+					this.resp = int.Parse(Console.ReadLine());
+					switch (resp) {
+							case 1 : Console.WriteLine("Emprestimo realizado com sucesso"); Task.Delay(1500).Wait(); break;
+							case 2 : Console.WriteLine("Até a proxima"); Task.Delay(1500).Wait(); break;
+						
+					}
+				}else{
+					Console.WriteLine("Livro sem estoque");
+				}
+			}
+		
+			
+		}
+	    
+	
+	        
+	    class Program
+	    {
+	        public static void Main(string[] args)
+	        {
+	        	livro emprestimo = new livro();
+	        	
+	        	emprestimo.biblioteca();
+	        	
+	        	
+
+	            Console.Write("Pressione qualquer tecla para sair...");
+	            Console.ReadKey(true);
+	        }
+	    }
+	}
