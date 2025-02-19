@@ -1,0 +1,82 @@
+using System;
+using System.Threading.Tasks;
+using System.Linq;
+
+public class Triângulo
+{
+	
+	public double Lado1 {get; set;}
+	public double Lado2 {get; set;}
+	public double Lado3 {get; set;}
+	
+	public Triângulo (double lado1, double lado2, double lado3){	
+		Lado1 = lado1;
+        Lado2 = lado2;
+        Lado3 = lado3;
+	}
+	
+	public bool TrianguloValido(){
+
+		return (Lado1 + Lado2 > Lado3) && (Lado1 + Lado3 > Lado2) && (Lado2 + Lado3 > Lado1);
+		
+	}
+	
+	public bool TrianguloEquilatero(){
+		
+		return Lado1 == Lado2 && Lado2 == Lado3;
+	}
+	
+	public bool TrianguloIsosceles(){
+		
+		return (Lado1 == Lado2) || (Lado2 == Lado3) || (Lado1 == Lado3);
+	}
+	
+	public bool TrianguloEscaleno(){
+		
+		return Lado1 != Lado2 && Lado2 != Lado3 && Lado3 != Lado1;
+	}
+	
+	public void ExibirTipo(){
+		
+		if (!TrianguloValido()){
+			
+			Console.WriteLine("Os lados fornecidos não formam um triângulo válido.");
+            return;
+		}
+		
+		if (TrianguloEquilatero()){
+			
+			Console.WriteLine("O triângulo é equilátero.");
+		}
+		
+    else if (TrianguloEscaleno()){
+			Console.WriteLine("O triângulo é escaleno.");	
+		}
+		
+    else if (TrianguloIsosceles()){		
+			
+			Console.WriteLine("O triângulo é isósceles.");
+		}
+	}
+	
+}
+
+public class Program
+{
+    public static void Main()
+    {
+    	Triângulo trianguloUm = new Triângulo(2, 2, 2);
+    	trianguloUm.ExibirTipo();
+    	
+    	Triângulo trianguloDois = new Triângulo(4, 4, 3);
+    	trianguloDois.ExibirTipo();
+    	
+    	Triângulo trianguloTres = new Triângulo(3, 4, 5);
+    	trianguloTres.ExibirTipo();
+    	
+    	Triângulo trianguloQuatro = new Triângulo(1, 2, 10);
+        trianguloQuatro.ExibirTipo();
+  
+        
+    }
+}
